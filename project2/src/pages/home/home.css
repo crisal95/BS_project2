@@ -1,0 +1,14 @@
+.categorieItem {
+    width: 20%;
+    height: 10rem;
+    margin: 2rem;
+}
+
+
+.home {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
