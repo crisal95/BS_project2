@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "../src/pages/home/home";
 import ApiHooks from "../src/hooks/apiHooks";
 import Trivia from "../src/pages/trivia/trivia";
+import Result from "../src/pages/result/result";
 
 ApiHooks.getToken();
 ReactDOM.render(
@@ -18,6 +19,9 @@ ReactDOM.render(
       </Route>
       <Route path="/trivia">
         <Trivia />
+      </Route>
+      <Route path="/result">
+        <Result />
       </Route>
     </Switch>
     </React.StrictMode>

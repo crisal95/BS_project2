@@ -20,18 +20,28 @@ function getToken() {
   }
 }
 
-const GetByCategory = ({id}) => {
+const GetByCategory = ({ id }) => {
   const [questions, setQuestions] = useState([]);
+  let bool = true;
+
   useEffect(() => {
-    fetch(BASE_URL + `&` + id)
-      .then((resp) => resp.json())
-      .then((res) => {
-        setQuestions(res);
-      })
-      .catch((ex) => {
-        console.error(ex);
-      });
+    if (!localStorage.getItem("index")) {
+      fetch(BASE_URL + `&` + id)
+        .then((resp) => resp.json())
+        .then((res) => {
+          setQuestions(res.results);
+          localStorage.setItem("questions", JSON.stringify(res.results));
+          localStorage.setItem("index", 0);
+        })
+        .catch((ex) => {
+          console.error(ex);
+        });
+    }
   }, []);
+
+  if (localStorage.getItem("questions")) {
+   return JSON.parse(localStorage.getItem("questions"));
+  }
   return questions;
 };
 
@@ -53,5 +63,5 @@ const GetCategories = () => {
 export default {
   getToken,
   GetByCategory,
-  GetCategories
+  GetCategories,
 };
