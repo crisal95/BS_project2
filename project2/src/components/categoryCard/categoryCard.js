@@ -1,26 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import './categoryCard.css';
+import ButtonsFunctions from "../../hooks/buttonsFunctions";
 
 const CategoryCard = ({ categoryData }) => {
  const [redirect, setRedirect] = useState(false);
 
 const click = () => {
   setRedirect(true);
-};
-const redirectTo = (id) => {
-  return (
-    <Redirect
-      to={{
-        pathname: "/trivia",
-        search: "?id=" + id,
-      }}
-    />
-  );
+  localStorage.setItem("id",categoryData.id);
 };
 
+
 if (redirect) {
-  return redirectTo(categoryData.id);
+  return ButtonsFunctions.redirectTrivia(categoryData.id);
 }
 
   return (

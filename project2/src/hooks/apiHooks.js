@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 
 const BASE_URL =
-  "https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple";
+  "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple";
 
 function getToken() {
   //const [token, setToken] = useState("");
@@ -20,13 +20,14 @@ function getToken() {
   }
 }
 
-const GetByCategory = ({ id }) => {
-  const [questions, setQuestions] = useState([]);
-  let bool = true;
+const GetByCategory = () => {
+    let id = window.location.href.split("id=").reverse()[0];
+  const [questions, setQuestions] = useState(null);
+  let bool = false;
 
   useEffect(() => {
     if (!localStorage.getItem("index")) {
-      fetch(BASE_URL + `&` + id)
+      fetch(BASE_URL + `&category=` + id)
         .then((resp) => resp.json())
         .then((res) => {
           setQuestions(res.results);
@@ -36,13 +37,13 @@ const GetByCategory = ({ id }) => {
         .catch((ex) => {
           console.error(ex);
         });
+    }else {
+        setQuestions(JSON.parse(localStorage.getItem("questions")));
     }
   }, []);
 
-  if (localStorage.getItem("questions")) {
-   return JSON.parse(localStorage.getItem("questions"));
-  }
-  return questions;
+    return questions;
+  
 };
 
 const GetCategories = () => {

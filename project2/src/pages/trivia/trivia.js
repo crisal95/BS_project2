@@ -14,7 +14,7 @@ const Trivia = () => {
       setList(getQuestions);
 
     }
-  },[]);
+  },[getQuestions]);
 
   return (
     list && (

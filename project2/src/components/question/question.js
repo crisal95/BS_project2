@@ -8,13 +8,12 @@ const Trivia = ({ question }) => {
   const [selected, setSelected] = useState([]);
   const [redirect, setRedirect] = useState(false);
   let ans = [];
-  const id = 0;
 
   useEffect(() => {
     if (question) {
       setAnswers(processData());
     }
-  }, [question]);
+  }, []);
 
   function functionSort(a, b) {
     return 0.5 - Math.random();
@@ -35,7 +34,6 @@ const Trivia = ({ question }) => {
   const redirectTo = () => {
       
     if (selected === question.correct_answer) {
-        console.log("correct");
       return (
         <Redirect
           to={{
