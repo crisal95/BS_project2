@@ -1,8 +1,7 @@
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 
-const BASE_URL =
-  "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple";
+const BASE_URL = "https://opentdb.com/api.php?amount=10&type=multiple";
 
 function getToken() {
   //const [token, setToken] = useState("");
@@ -21,7 +20,7 @@ function getToken() {
 }
 
 const GetByCategory = () => {
-    let id = window.location.href.split("id=").reverse()[0];
+  let id = window.location.href.split("id=").reverse()[0];
   const [questions, setQuestions] = useState(null);
   let bool = false;
 
@@ -37,13 +36,12 @@ const GetByCategory = () => {
         .catch((ex) => {
           console.error(ex);
         });
-    }else {
-        setQuestions(JSON.parse(localStorage.getItem("questions")));
+    } else {
+      setQuestions(JSON.parse(localStorage.getItem("questions")));
     }
   }, []);
 
-    return questions;
-  
+  return questions;
 };
 
 const GetCategories = () => {
@@ -61,8 +59,20 @@ const GetCategories = () => {
   return categories;
 };
 
+const deleteLocalStorage = () => {
+  localStorage.removeItem("index");
+  localStorage.removeItem("questions");
+};
+
+const GetIndexCorrectAnswer = (index) => {
+  const question = JSON.parse(localStorage.getItem("questions"));
+  return question[index].correct_answer;
+}
+
 export default {
   getToken,
   GetByCategory,
   GetCategories,
+  deleteLocalStorage,
+  GetIndexCorrectAnswer,
 };

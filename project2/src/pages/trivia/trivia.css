@@ -1,0 +1,13 @@
+.triviaContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.questionCard {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    
+}
+

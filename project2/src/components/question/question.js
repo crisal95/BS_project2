@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import ApiHooks from "../../hooks/apiHooks";
 import "./question.css";
-import { Redirect } from "react-router-dom";
+import ButtonsFunctions from "../../hooks/buttonsFunctions";
 
 const Trivia = ({ question }) => {
   const [answers, setAnswers] = useState([]);
   const [selected, setSelected] = useState([]);
   const [redirect, setRedirect] = useState(false);
   let ans = [];
+  let questionIndex = parseInt(localStorage.getItem("index"));
 
   useEffect(() => {
     if (question) {
@@ -34,26 +34,12 @@ const Trivia = ({ question }) => {
   const redirectTo = () => {
       
     if (selected === question.correct_answer) {
-      return (
-        <Redirect
-          to={{
-            pathname: "/result",
-            search: "?answer=correct",
-          }}
-        />
-      );
-      //localStorage.setItem("index", localStorage.getItem("index") + 1);
+      if(questionIndex === 9){
+        return ButtonsFunctions.redirectWin();
+      }
+      return ButtonsFunctions.redirectResults("correct");
     } else {
-      return (
-        <Redirect
-          to={{
-            pathname: "/result",
-            search: "?answer=incorrect",
-          }}
-        />
-      );
-      //localStorage.removeItem("index");
-      //localStorage.removeItem("questions");
+      return ButtonsFunctions.redirectResults("incorrect");
     }
   };
 
@@ -63,7 +49,7 @@ const Trivia = ({ question }) => {
 
   return (
     answers && (
-      <div className="triviaContainer">
+      <div className="questionContainer">
         <h3>{question.question}</h3>
         <div className="radioButtons" onChange={handleButtonChange}>
           {answers.map((item, iter) => (

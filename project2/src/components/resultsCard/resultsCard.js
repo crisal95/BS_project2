@@ -5,10 +5,12 @@ import ButtonsFunctions from "../../hooks/buttonsFunctions";
 
 const Trivia = ({ resultData }) => {
   const [redirect, setRedirect] = useState(false);
-  let buttonClicked = "";
+  const [buttonClicked, setButton] = useState("");
+
+  //let buttonClicked = "";
   let button1 = "Try again!";
   let button2 = "Home";
-  const id =localStorage.getItem("id");
+  const id = localStorage.getItem("id");
 
   const buttonText = () => {
     if (resultData.status === "correct") {
@@ -18,24 +20,23 @@ const Trivia = ({ resultData }) => {
   };
 
   const click = (button) => {
-    buttonClicked = button;
+    setButton(button);
     setRedirect(true);
   };
 
   if (redirect) {
     if (buttonClicked === "1") {
       if (resultData.status === "correct") {
+  
         return ButtonsFunctions.redirectTrivia(id);
       }
-      localStorage.removeItem("index");
-      localStorage.removeItem("questions");
+      ApiHooks.deleteLocalStorage();
       return ButtonsFunctions.redirectTrivia(id);
     } else {
       if (resultData.status === "correct") {
-        return ButtonsFunctions.redirectTrivia(id);
+        return ButtonsFunctions.redirectResults("retired");
       }
-      localStorage.removeItem("index");
-      localStorage.removeItem("questions");
+      ApiHooks.deleteLocalStorage();
       return ButtonsFunctions.redirectHome();
     }
   }
@@ -51,6 +52,7 @@ const Trivia = ({ resultData }) => {
           <h3>{resultData.subtitle}</h3>
         </div>
         <div className="textCard_text">
+          <p>{resultData.correctAns}</p>
           <p>{resultData.text}</p>
         </div>
       </div>
