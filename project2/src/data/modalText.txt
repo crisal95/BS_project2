@@ -1,0 +1,15 @@
+Welcome to Do you want to play a game? Trivia!
+
+Rules:
+
+- You have to choose a category.
+- The game consist on 10 questions about the same category.
+- You are going to have just 30 secons to answer.
+- With every right answer, you are going to win a bigger reward.
+- If your answer is correct, you will be able to choose between giving up or keep playing.
+- If you answer correctly and you give up, you keep your rewards.
+- If your answer is incorrect, you lose your rewards.
+- If your time is up, you lose the game and your rewards. 
+- If you answer correctly all the 10 questions, you are going to win 5 millon dollars.
+
+May the odds be ever in your favor!!

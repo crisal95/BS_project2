@@ -4,6 +4,7 @@ import CategorieCard from "../../components/categoryCard/categoryCard";
 import "./home.css";
 import Header from "../../components/header/header";
 
+
 const Home = () => {
   const categories = ApiHooks.GetCategories();
   ApiHooks.deleteLocalStorage();

@@ -1,5 +1,7 @@
 import React from 'react';
 import "./header.css";
+import Modal from "../../components/modal/modal";
+import ModalText from "../../data/text";
 
 
 const Header = () => {
@@ -10,7 +12,7 @@ const Header = () => {
     </div>
     <div className="heroContent">
 <p>This a game similar to Who wants to be millionaire! Choose a category and let's start!</p>
-<button>Game rules</button>
+<Modal title={"Game rules"} text={ModalText}/>
     </div>
 </div>
     );
