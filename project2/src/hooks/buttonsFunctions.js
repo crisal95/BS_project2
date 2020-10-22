@@ -30,7 +30,7 @@ const redirectTrivia = (id) => {
   );
 };
 
-const redirectResults = (status) => {
+const RedirectResults = (status) => {
   return (
     <Redirect
       to={{
@@ -54,6 +54,6 @@ const redirectWin = () => {
 export default {
   redirectHome,
   redirectTrivia,
-  redirectResults,
+  RedirectResults,
   redirectWin,
 };

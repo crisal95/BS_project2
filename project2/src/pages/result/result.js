@@ -5,10 +5,20 @@ import GetMessageData from "../../hooks/getMessageData";
 
 const Result = () => {
 
+  const [data,setData] = useState(null);
+  const messageData = GetMessageData();
+
+  useEffect(() => {
+    if (messageData) {
+      setData(messageData);
+    }
+  }, []);
+
   return (
+    data && (
     <div className="results">
       <ResultsCard resultData={GetMessageData()}/>
-    </div>
+    </div>)
   );
 };
 

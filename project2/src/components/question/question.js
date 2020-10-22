@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./question.css";
 import ButtonsFunctions from "../../hooks/buttonsFunctions";
+import parse from 'html-react-parser';
 
 const Trivia = ({ question }) => {
   const [answers, setAnswers] = useState([]);
@@ -37,9 +38,9 @@ const Trivia = ({ question }) => {
       if(questionIndex === 9){
         return ButtonsFunctions.redirectWin();
       }
-      return ButtonsFunctions.redirectResults("correct");
+      return ButtonsFunctions.RedirectResults("correct");
     } else {
-      return ButtonsFunctions.redirectResults("incorrect");
+      return ButtonsFunctions.RedirectResults("incorrect");
     }
   };
 
@@ -50,11 +51,11 @@ const Trivia = ({ question }) => {
   return (
     answers && (
       <div className="questionContainer">
-        <h3>{question.question}</h3>
+        <h3>{parse(question.question)}</h3>
         <div className="radioButtons" onChange={handleButtonChange}>
           {answers.map((item, iter) => (
             <div key={iter} className="radioButton">
-              <input type="radio" value={item} name="option" /> {item}
+              <input type="radio" value={item} name="option" /> {parse(item)}
             </div>
           ))}
         </div>

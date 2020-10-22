@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import './win.css';
-import Prizes from "../../hooks/prizes"
+import "./win.css";
+import Prizes from "../../hooks/prizes";
 import ApiHooks from "../../hooks/apiHooks";
 import ButtonsFunctions from "../../hooks/buttonsFunctions";
+import Confetti from "react-confetti";
 
 const Win = () => {
   const [redirect, setRedirect] = useState(false);
   let prizeIndex = parseInt(localStorage.getItem("index"));
   let prize = Prizes.getCurrentPrize(prizeIndex);
+  const width = window.innerWidth;
+  const height = window.innerHeight;
 
   const click = () => {
     setRedirect(true);
@@ -19,16 +22,27 @@ const Win = () => {
   }
   return (
     <div className="winCard">
-      <h3 className="wonTitle">You won!!!!!!</h3>
-      <p>
-        You have won {prize} dollars!!! You wanted to be millionaire, you are
-        richer than the guy from monopoly
-      </p>
-      <button
-        onClick={() => {
-          click();
-        }}
-      >Back to home</button>
+      <div className="confettiContent">
+        <Confetti width={width} height={height} />
+      </div>
+      <div>
+        <h3 className="wonTitle">You won!!!!!!</h3>
+      </div>
+      <div>
+        <p>
+          You have won {prize} dollars!!! You wanted to be millionaire, now you are
+          richer than the guy from monopoly!!
+        </p>
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            click();
+          }}
+        >
+          Back to home
+        </button>
+      </div>
     </div>
   );
 };
