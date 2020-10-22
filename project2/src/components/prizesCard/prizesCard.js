@@ -7,7 +7,6 @@ const PrizesCard = () => {
 const getBool = (iter) => {
     let bool = false;
     if(parseInt( actualIndex) === iter+1){
-        console.log(iter);
         bool = true;
     }
     return bool;

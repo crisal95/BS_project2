@@ -7,6 +7,7 @@ const getMessageData = () => {
   let prizeIndex = parseInt(localStorage.getItem("index"));
   let prize = Prizes.getCurrentPrize(prizeIndex);
   const correctAnswer = ApiHooks.GetIndexCorrectAnswer(prizeIndex);
+  
   let data = {
     title: "",
     subTitle: "",
