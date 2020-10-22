@@ -8,6 +8,8 @@ const Home = () => {
   const categories = ApiHooks.GetCategories();
   ApiHooks.deleteLocalStorage();
   localStorage.setItem("boolIndex", "false");
+  localStorage.setItem("result", "false");
+  localStorage.setItem("routeCheck", "false");
 
   return (
     <div>

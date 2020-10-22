@@ -3,7 +3,7 @@ import Prizes from "../hooks/prizes";
 import ApiHooks from "../hooks/apiHooks";
 
 const getMessageData = () => {
-  let status = window.location.href.split("answer=").reverse()[0];
+  let status = localStorage.getItem("pageStatus");
   let prizeIndex = parseInt(localStorage.getItem("index"));
   let prize = Prizes.getCurrentPrize(prizeIndex);
   const correctAnswer = ApiHooks.GetIndexCorrectAnswer(prizeIndex);
@@ -15,19 +15,19 @@ const getMessageData = () => {
     text: "",
     status: status,
   };
-  if (status === "correct") {
+  if (status === "1") {
     data.title = "You have answered correctly!";
     data.subtitle = "Current reward";
     data.text =
       "Your current reward is " +
       prize +
       " dollars. Do you want to give up or keep playing?";
-  } else if (status === "incorrect") {
+  } else if (status === "2") {
     data.title = "You have answered incorrectly!";
     data.subtitle = "You lost";
     data.text = "You have lost all your rewards. Try again!";
-  } else if (status === "retired") {
-    data.title = "You have retired!";
+  } else if (status === "3") {
+    data.title = "You have giveup!";
     data.subtitle = "You lost. But you can keep your current rewards!";
     data.text = "You won " + prize + " dollars! Try again!";
     if (prizeIndex === "0") {

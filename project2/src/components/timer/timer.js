@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ButtonsFunctions from "../../hooks/buttonsFunctions";
 import { Redirect } from "react-router-dom";
 
 const Timer = () => {
-  const [timer, setTimer] = useState(300);
+  const [timer, setTimer] = useState(30);
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
@@ -16,14 +15,15 @@ const Timer = () => {
     } else {
       setRedirect(true);
     }
-  });
+  },[timer]);
 
   if (redirect) {
+    localStorage.setItem("result","true");
+    localStorage.setItem("pageStatus", "4");
     return (
         <Redirect
           to={{
-            pathname: "/result",
-            search: "?answer=" + "",
+            pathname: "/result"
           }}
         />
       );

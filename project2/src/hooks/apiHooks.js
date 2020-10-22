@@ -22,7 +22,6 @@ function getToken() {
 const GetByCategory = () => {
   let id = window.location.href.split("id=").reverse()[0];
   const [questions, setQuestions] = useState(null);
-  let bool = false;
 
   useEffect(() => {
     if (!localStorage.getItem("index")) {
@@ -69,10 +68,27 @@ const GetIndexCorrectAnswer = (index) => {
   return question[index].correct_answer;
 }
 
+const ResultAccess = () => {
+  let bool = false;
+  if(localStorage.getItem("result") === "true"){
+    bool = true;
+  }
+  return bool;
+  }
+  const RouteCheck = () => {
+    let bool = false;
+    if(localStorage.getItem("routeCheck") === "true"){
+      bool = true;
+    }
+    return bool;
+    }
+
 export default {
   getToken,
   GetByCategory,
   GetCategories,
   deleteLocalStorage,
   GetIndexCorrectAnswer,
+  ResultAccess,
+  RouteCheck,
 };

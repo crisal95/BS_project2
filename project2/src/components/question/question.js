@@ -9,6 +9,7 @@ const Trivia = ({ question }) => {
   const [redirect, setRedirect] = useState(false);
   let ans = [];
   let questionIndex = parseInt(localStorage.getItem("index"));
+  localStorage.setItem("result", "false");
 
   useEffect(() => {
     if (question) {
@@ -36,15 +37,19 @@ const Trivia = ({ question }) => {
       
     if (selected === question.correct_answer) {
       if(questionIndex === 9){
+        localStorage.setItem("routeCheck", "true");
         return ButtonsFunctions.redirectWin();
       }
-      return ButtonsFunctions.RedirectResults("correct");
+      localStorage.setItem("pageStatus","1");
+      return ButtonsFunctions.RedirectResults();
     } else {
-      return ButtonsFunctions.RedirectResults("incorrect");
+      localStorage.setItem("pageStatus","2");
+      return ButtonsFunctions.RedirectResults();
     }
   };
 
   if (redirect) {
+    localStorage.setItem("result", "true");
     return redirectTo();
   }
 

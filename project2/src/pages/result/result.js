@@ -5,14 +5,18 @@ import GetMessageData from "../../hooks/getMessageData";
 
 const Result = () => {
 
+
   const [data,setData] = useState(null);
   const messageData = GetMessageData();
+  localStorage.setItem("result", "true");
 
   useEffect(() => {
     if (messageData) {
       setData(messageData);
+     
     }
   }, []);
+
 
   return (
     data && (

@@ -11,13 +11,13 @@ const Trivia = ({ resultData }) => {
   const width = window.innerWidth;
   const height = window.innerHeight;
 
-  //let buttonClicked = "";
+
   let button1 = "Try again!";
   let button2 = "Home";
   const id = localStorage.getItem("id");
 
   const buttonText = () => {
-    if (resultData.status === "correct") {
+    if (resultData.status === "1") {
       button1 = "Next question!";
       button2 = "Give up!";
     }
@@ -30,14 +30,15 @@ const Trivia = ({ resultData }) => {
 
   if (redirect) {
     if (buttonClicked === "1") {
-      if (resultData.status === "correct") {
+      if (resultData.status === "1") {
         return ButtonsFunctions.redirectTrivia(id);
       }
       ApiHooks.deleteLocalStorage();
       return ButtonsFunctions.redirectTrivia(id);
     } else {
-      if (resultData.status === "correct") {
-        return ButtonsFunctions.RedirectResults("retired");
+      if (resultData.status === "1") {
+        localStorage.setItem("pageStatus","3");
+        return ButtonsFunctions.RedirectResults();
       }
       ApiHooks.deleteLocalStorage();
       return ButtonsFunctions.redirectHome();
@@ -47,7 +48,7 @@ const Trivia = ({ resultData }) => {
   buttonText();
   return (
     <div className="resultCard">
-      {resultData.status === "correct" && (
+      {resultData.status === "1" && (
         <Confetti width={width} height={height} />
       )}
       <div className="title">

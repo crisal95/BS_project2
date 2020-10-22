@@ -30,12 +30,11 @@ const redirectTrivia = (id) => {
   );
 };
 
-const RedirectResults = (status) => {
+const RedirectResults = () => {
   return (
     <Redirect
       to={{
-        pathname: "/result",
-        search: "?answer=" + status,
+        pathname: "/result"
       }}
     />
   );
