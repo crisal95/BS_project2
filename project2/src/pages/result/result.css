@@ -1,7 +1,9 @@
 .results {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  background-color: #660099;
+  color: white;
 }

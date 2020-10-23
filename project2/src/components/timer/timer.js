@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 
 const Timer = () => {
-  const [timer, setTimer] = useState(30);
+  const [timer, setTimer] = useState(300);
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     if (timer !== 0) {
-      const timerTimeOut = setTimeout(() => {
+        setTimeout(() => {
         if (timer !== 0) {
           setTimer(timer - 1);
         }

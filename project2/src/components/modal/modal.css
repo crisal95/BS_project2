@@ -7,3 +7,17 @@
   width: 2rem;
 }
 
+.rulesButton {
+    background-color: white;
+    cursor: pointer;
+    height: 3rem;
+    font-size: large ;
+    border: 0;
+
+}
+
+.rulesButton:hover {
+    background-color: #660099;
+    color: white;
+    border: 1px solid lightgray;
+}

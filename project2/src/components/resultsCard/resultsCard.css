@@ -1,0 +1,24 @@
+.resultCard {
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 5px 5px 50px -11px lightgray;
+    color: black;
+    padding: 3rem;
+}
+
+.resultButton {
+    background-color: #660099;
+    color: white;
+    cursor: pointer;
+    height: 3rem;
+    width: 9rem;
+    font-size: large ;
+    border: 0;
+    margin: 1rem;
+}
+
+.resultButton:hover {
+    background-color: #FF6600;
+    color: white;
+    border: 1px solid lightgray;
+}

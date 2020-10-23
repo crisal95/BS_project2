@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ApiHooks from "../../hooks/apiHooks";
 import CategorieCard from "../../components/categoryCard/categoryCard";
 import "./home.css";
-import Header from "../../components/header/header";
+import Hero from "../../components/hero/hero";
 
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+      <Hero />
       <div className="home">
         {categories.map((item) => (
           <div key={item.id} className="categorieItem">

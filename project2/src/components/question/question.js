@@ -56,7 +56,7 @@ const Trivia = ({ question }) => {
   return (
     answers && (
       <div className="questionContainer">
-        <h3>{parse(question.question)}</h3>
+        <h3 className="questionTitle">{parse(question.question)}</h3>
         <div className="radioButtons" onChange={handleButtonChange}>
           {answers.map((item, iter) => (
             <div key={iter} className="radioButton">
@@ -64,7 +64,7 @@ const Trivia = ({ question }) => {
             </div>
           ))}
         </div>
-        <button
+        <button className="finalButton"
           onClick={() => {
             buttonClick();
           }}

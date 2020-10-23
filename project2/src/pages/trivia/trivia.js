@@ -4,6 +4,7 @@ import "./trivia.css";
 import Question from "../../components/question/question";
 import Timer from "../../components/timer/timer";
 import PrizesCard from "../../components/prizesCard/prizesCard";
+import Header from "../../components/header/header";
 
 const Trivia = () => {
   let id = window.location.href.split("id=").reverse()[0];
@@ -21,6 +22,7 @@ const Trivia = () => {
   return (
     list && (
       <div className="triviaContainer">
+        <Header/>
         <div className="questionCard">
           <Question question={list[localStorage.getItem("index")]} />
         </div>

@@ -4,13 +4,18 @@ import "./resultsCard.css";
 import ButtonsFunctions from "../../hooks/buttonsFunctions";
 import parse from "html-react-parser";
 import Confetti from "react-confetti";
+import GetMessageData from "../../hooks/getMessageData";
 
-const Trivia = ({ resultData }) => {
+const Trivia = ({ resultData, onChange }) => {
   const [redirect, setRedirect] = useState(false);
   const [buttonClicked, setButton] = useState("");
   const width = window.innerWidth;
   const height = window.innerHeight;
+  const [data, setData] = useState(null);
 
+  useEffect(() => {
+    setData(resultData);
+  }, [resultData]);
 
   let button1 = "Try again!";
   let button2 = "Home";
@@ -37,8 +42,9 @@ const Trivia = ({ resultData }) => {
       return ButtonsFunctions.redirectTrivia(id);
     } else {
       if (resultData.status === "1") {
-        localStorage.setItem("pageStatus","3");
-        return ButtonsFunctions.RedirectResults();
+        localStorage.setItem("pageStatus", "3");
+        onChange(GetMessageData.setMessageData("3"));
+        return null;
       }
       ApiHooks.deleteLocalStorage();
       return ButtonsFunctions.redirectHome();
@@ -47,38 +53,40 @@ const Trivia = ({ resultData }) => {
 
   buttonText();
   return (
-    <div className="resultCard">
-      {resultData.status === "1" && (
-        <Confetti width={width} height={height} />
-      )}
-      <div className="title">
-        <h3>{resultData.title}</h3>
-      </div>
-      <div className="textCard">
-        <div className="textCard_title">
-          <h3>{resultData.subtitle}</h3>
+    data && (
+      <div className="resultCard">
+        {data.status === "1" && <Confetti width={width} height={height} />}
+        <div className="title">
+          <h3>{data.title}</h3>
         </div>
-        <div className="textCard_text">
-          <p>{parse(resultData.correctAns)}</p>
-          <p>{resultData.text}</p>
+        <div className="textCard">
+          <div className="textCard_title">
+            <h3>{data.subtitle}</h3>
+          </div>
+          <div className="textCard_text">
+            <p>{parse(data.correctAns)}</p>
+            <p>{data.text}</p>
+          </div>
         </div>
+        <div className="cardButtons"></div>
+        <button
+          className="resultButton"
+          onClick={() => {
+            click("1");
+          }}
+        >
+          {button1}
+        </button>
+        <button
+          className="resultButton"
+          onClick={() => {
+            click("2");
+          }}
+        >
+          {button2}
+        </button>
       </div>
-      <div className="cardButtons"></div>
-      <button
-        onClick={() => {
-          click("1");
-        }}
-      >
-        {button1}
-      </button>
-      <button
-        onClick={() => {
-          click("2");
-        }}
-      >
-        {button2}
-      </button>
-    </div>
+    )
   );
 };
 
