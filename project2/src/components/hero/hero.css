@@ -1,34 +1,43 @@
 .hero {
-    height: 100vh;
-    background-color: #CC0000;
-    color: white;
-    background: url("../../data/back.png") fixed;
-    background-size: 100%;
-    background-repeat: no-repeat;
+  height: 100vh;
+  background-color: #cc0000;
+  color: white;
+  background: url("../../data/back.png") fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
 }
 
-.heroContent {
-    text-align: center;
+.heroContent span {
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
-
-    .heroContent {
-        margin: 0.5rem;
-    }
+  .heroContent {
+    margin: 0.5rem;
   }
-  
-  @media only screen and (max-width: 980px) {
-    .hero {
-        height: auto;
-        text-align: center;
-    }
-
+  .title {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
   }
-  
+}
+
+@media only screen and (max-width: 980px) {
+  .hero {
+    height: auto;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .hero {
+    
+    color: white;
+    background: black;
+  }
+}

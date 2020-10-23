@@ -14,6 +14,10 @@
   box-shadow: 5px 5px 50px -11px lightgray;
   color: black;
   padding: 3rem;
+  
+  text-align: justify;
+  text-justify: inter-word;
+
 }
 
 .resultButton {
@@ -22,13 +26,22 @@
   cursor: pointer;
   height: 3rem;
   width: 9rem;
-  font-size: large ;
+  font-size: large;
   border: 0;
   margin: 1rem;
 }
 
 .resultButton:hover {
-  background-color: #FF6600;
+  background-color: #ff6600;
   color: white;
   border: 1px solid lightgray;
+}
+
+@media only screen and (max-width: 768px) {
+  .resultCard {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

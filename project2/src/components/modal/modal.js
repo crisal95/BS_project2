@@ -16,10 +16,8 @@ const customStyles = {
   },
 };
 
-// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-
 const ModalComponent = ({ title, text }) => {
-  var subtitle;
+
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
@@ -38,6 +36,7 @@ const ModalComponent = ({ title, text }) => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
+        appElement={document.getElementById('root')}
       >
         <div className="modalContainer">
           <div>

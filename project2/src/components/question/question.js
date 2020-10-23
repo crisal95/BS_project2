@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./question.css";
 import ButtonsFunctions from "../../hooks/buttonsFunctions";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 
 const Trivia = ({ question }) => {
   const [answers, setAnswers] = useState([]);
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(null);
   const [redirect, setRedirect] = useState(false);
+  const [error, setError] = useState(false);
   let ans = [];
   let questionIndex = parseInt(localStorage.getItem("index"));
   localStorage.setItem("result", "false");
@@ -31,19 +32,22 @@ const Trivia = ({ question }) => {
     setSelected(e.target.value);
   };
   const buttonClick = () => {
-    setRedirect(true);
+    if (selected) {
+      setRedirect(true);
+    } else {
+      setError(true);
+    }
   };
   const redirectTo = () => {
-      
     if (selected === question.correct_answer) {
-      if(questionIndex === 9){
+      if (questionIndex === 9) {
         localStorage.setItem("routeCheck", "true");
         return ButtonsFunctions.redirectWin();
       }
-      localStorage.setItem("pageStatus","1");
+      localStorage.setItem("pageStatus", "1");
       return ButtonsFunctions.RedirectResults();
     } else {
-      localStorage.setItem("pageStatus","2");
+      localStorage.setItem("pageStatus", "2");
       return ButtonsFunctions.RedirectResults();
     }
   };
@@ -64,13 +68,17 @@ const Trivia = ({ question }) => {
             </div>
           ))}
         </div>
-        <button className="finalButton"
+        <button
+          className="finalButton"
           onClick={() => {
             buttonClick();
           }}
         >
           Final answer
         </button>
+        {error && (
+          <p className="errorText">You have to select an option first!</p>
+        )}
       </div>
     )
   );

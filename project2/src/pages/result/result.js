@@ -1,26 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./result.css";
-import ResultsCard from "../../components/resultsCard/resultsCard";
 import GetMessageData from "../../hooks/getMessageData";
 import ButtonsFunctions from "../../hooks/buttonsFunctions";
 import parse from "html-react-parser";
-import Confetti from "react-confetti";
+import Confetti from "../../components/confetti/confetti";
 import ApiHooks from "../../hooks/apiHooks";
 
 const Result = () => {
-  const [data, setData] = useState(null);
   localStorage.setItem("result", "true");
   const [redirect, setRedirect] = useState(false);
   const [buttonClicked, setButton] = useState("");
-  const width = window.innerWidth;
-  const height = window.innerHeight;
   const { updateMessage, messageData } = GetMessageData();
-
-  useEffect(() => {
-    if (messageData) {
-      setData(messageData);
-    }
-  }, [messageData]);
+  
 
   let button1 = "Try again!";
   let button2 = "Home";
@@ -63,7 +54,7 @@ const Result = () => {
       <div className="results">
         <div className="resultCard">
           {messageData.status === "1" && (
-            <Confetti width={width} height={height} />
+            <Confetti />
           )}
           <div className="title">
             <h3>{messageData.title}</h3>

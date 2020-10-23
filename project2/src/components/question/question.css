@@ -1,36 +1,38 @@
 .questionContainer {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-   align-content: space-around;
-   justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: center;
+  margin: 1rem;
 }
-
 
 .radioButtons {
-    margin: 2rem;
-    font-size: larger;
+  margin: 2rem;
+  font-size: larger;
 }
 
-
-
 .questionTitle {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 
 .finalButton {
-    background-color: white;
-    cursor: pointer;
-    height: 3rem;
-    width: 8rem;
-    font-size: large ;
-    border: 0;
-    margin: 1rem;
-
+  background-color: white;
+  cursor: pointer;
+  height: 3rem;
+  width: 8rem;
+  font-size: large;
+  border: 0;
+  margin: 1rem;
 }
 
 .finalButton:hover {
-    background-color: #FF6600;
-    color: white;
-    border: 1px solid lightgray;
+  background-color: #ff6600;
+  color: white;
+  border: 1px solid lightgray;
+}
+
+.errorText {
+  color: #ff6600;
+  font-size: larger;
 }

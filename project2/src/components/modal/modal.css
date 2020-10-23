@@ -21,3 +21,10 @@
     color: white;
     border: 1px solid lightgray;
 }
+
+.modalComponent {
+  text-align: center;
+}
+.closeButton {
+  text-align: center;
+}

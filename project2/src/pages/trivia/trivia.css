@@ -1,41 +1,42 @@
-.triviaContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: #660099;
-    color: white;
-    min-height: 100vh;
-    flex-wrap: wrap;
+.triviaContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #660099;
+  color: white;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .questionCard {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    border-right: 2px solid black;
-    
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid black;
 }
 
 .extraItems {
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 768px) {
-    .triviaContainer{
-        flex-direction: column;
-        justify-content: center;
-
-    }
-
-    .questionCard {
-        width: 100%;
-        flex-direction: column;
-        border-right: 0;
-        
-    }
-   
+  .triviaContainer {
+    flex-direction: column;
+    justify-content: center;
   }
-  
+
+  .questionCard {
+    width: 100%;
+    flex-direction: column;
+    border-right: 0;
+  }
+
+  .extraItems {
+    margin: 1rem;
+  }
+}
