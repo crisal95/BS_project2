@@ -1,7 +1,9 @@
+import { enc } from "crypto-js";
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 
 const BASE_URL = "https://opentdb.com/api.php?amount=10&type=multiple";
+var CryptoJS = require("crypto-js");
 
 function getToken() {
   //const [token, setToken] = useState("");
@@ -20,23 +22,31 @@ function getToken() {
 }
 
 const GetByCategory = () => {
+ 
   let id = window.location.href.split("id=").reverse()[0];
   const [questions, setQuestions] = useState(null);
 
   useEffect(() => {
+
     if (!localStorage.getItem("index")) {
       fetch(BASE_URL + `&category=` + id)
         .then((resp) => resp.json())
         .then((res) => {
+          var encrypted = CryptoJS.AES.encrypt(
+            JSON.stringify(res.results),
+            Cookies.get("token")
+          );
           setQuestions(res.results);
-          localStorage.setItem("questions", JSON.stringify(res.results));
+          localStorage.setItem("questions", encrypted);
           localStorage.setItem("index", 0);
         })
         .catch((ex) => {
           console.error(ex);
         });
     } else {
-      setQuestions(JSON.parse(localStorage.getItem("questions")));
+      var data = localStorage.getItem("questions");
+      var decrypted = CryptoJS.AES.decrypt(data, Cookies.get("token"));
+      setQuestions(JSON.parse(decrypted.toString(CryptoJS.enc.Utf8)));
     }
   }, []);
 
@@ -64,24 +74,27 @@ const deleteLocalStorage = () => {
 };
 
 const GetIndexCorrectAnswer = (index) => {
-  const question = JSON.parse(localStorage.getItem("questions"));
+  if(!localStorage.getItem("questions")) return "";
+  var data = localStorage.getItem("questions");
+  var decrypted = CryptoJS.AES.decrypt(data, Cookies.get("token"));
+  const question = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
   return question[index].correct_answer;
-}
+};
 
 const ResultAccess = () => {
   let bool = false;
-  if(localStorage.getItem("result") === "true"){
+  if (localStorage.getItem("result") === "true") {
     bool = true;
   }
   return bool;
+};
+const RouteCheck = () => {
+  let bool = false;
+  if (localStorage.getItem("routeCheck") === "true") {
+    bool = true;
   }
-  const RouteCheck = () => {
-    let bool = false;
-    if(localStorage.getItem("routeCheck") === "true"){
-      bool = true;
-    }
-    return bool;
-    }
+  return bool;
+};
 
 export default {
   getToken,

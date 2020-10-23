@@ -17,12 +17,16 @@ const Trivia = () => {
     if (getQuestions) {
       setList(getQuestions);
     }
+    if (localStorage.getItem("retry") === "true") {
+      localStorage.setItem("index", "0");
+      localStorage.setItem("retry", "false");
+    }
   }, [getQuestions]);
 
   return (
     list && (
       <div className="triviaContainer">
-        <Header/>
+        <Header />
         <div className="questionCard">
           <Question question={list[localStorage.getItem("index")]} />
         </div>
