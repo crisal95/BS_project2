@@ -2,7 +2,7 @@
     height: 100vh;
     background-color: #CC0000;
     color: white;
-    background: url("../../data/back.jpg") fixed;
+    background: url("../../data/back.png") fixed;
     background-size: 100%;
     background-repeat: no-repeat;
 
@@ -18,12 +18,17 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .hero {
-        height: auto;
-        text-align: center;
-    }
 
     .heroContent {
         margin: 0.5rem;
     }
   }
+  
+  @media only screen and (max-width: 980px) {
+    .hero {
+        height: auto;
+        text-align: center;
+    }
+
+  }
+  

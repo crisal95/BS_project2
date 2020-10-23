@@ -22,3 +22,20 @@
     align-content: space-around;
     justify-content: center;
 }
+
+@media only screen and (max-width: 768px) {
+    .triviaContainer{
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .questionCard {
+        width: 100%;
+        flex-direction: column;
+        border-right: 0;
+        
+    }
+   
+  }
+  
