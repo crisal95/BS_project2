@@ -20,6 +20,9 @@
   font-size: larger;
   font-weight: bold;
 }
+.title h1 {
+  font-size: xx-large;
+}
 
 .scroll-image {
   margin-top: 1rem;
