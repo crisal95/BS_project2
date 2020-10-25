@@ -4,8 +4,6 @@ import ApiHooks from "../hooks/apiHooks";
 
 
 const GetMessageData = () => {
-  //let status = localStorage.getItem("pageStatus");
-
   let prizeIndex = parseInt(localStorage.getItem("index"));
   let prize = Prizes.getCurrentPrize(prizeIndex);
   const correctAnswer = ApiHooks.GetIndexCorrectAnswer(prizeIndex);
@@ -36,11 +34,11 @@ const GetMessageData = () => {
       data.text = "You have lost all your rewards. Try again!";
     } else if (localStatus === "3") {
       data.title = "You have give up!";
-      data.subtitle = "You lost. But you can keep your current rewards!";
+      data.subtitle = "But you can keep your current rewards!";
       data.text = "You won " + prize + " dollars! Try again!";
 
       if (prizeIndex === "0") {
-        data.subtitle = "You lost. And you didn´t win any money!";
+        data.subtitle = "You lost and you didn't win any money!";
         data.text = "Try again!";
       }
     } else {
@@ -49,7 +47,7 @@ const GetMessageData = () => {
       data.text = "Try again!";
       if (prizeIndex === "0") {
         data.subtitle =
-          "You lost. And you didn´t lose any awards because you did not have any!";
+          "You lost. And you didn't lose any awards because you did not have any!";
       }
     }
     return data;
