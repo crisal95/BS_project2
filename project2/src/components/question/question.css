@@ -22,17 +22,24 @@
   height: 3rem;
   width: 8rem;
   font-size: large;
-  border: 0;
+  border: none;
   margin: 1rem;
 }
 
 .finalButton:hover {
-  background-color: #ff6600;
+  background-color: #660099;
   color: white;
-  border: 1px solid lightgray;
+  border: 3px solid white;
 }
 
 .errorText {
   color: #ff6600;
   font-size: larger;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .radioButtons {
+    margin: 1rem;
+  }
 }

@@ -27,14 +27,14 @@
   height: 3rem;
   width: 9rem;
   font-size: large;
-  border: 0;
+  border: none;
   margin: 1rem;
 }
 
 .resultButton:hover {
   background-color: #ff6600;
   color: white;
-  border: 1px solid lightgray;
+  border: 3px solid #660099;
 }
 
 @media only screen and (max-width: 768px) {

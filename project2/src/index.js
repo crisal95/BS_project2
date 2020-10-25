@@ -8,7 +8,7 @@ import ApiHooks from "../src/hooks/apiHooks";
 import Trivia from "../src/pages/trivia/trivia";
 import Result from "../src/pages/result/result";
 import Win from "../src/pages/win/win";
-import Routes from "../src/hooks/routes";
+import 'font-awesome/css/font-awesome.min.css';
 
 
 
@@ -33,7 +33,7 @@ ReactDOM.render(
         </WinRoute>
       </Switch>
     </React.StrictMode>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Playfair+Display:wght@400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></link>
   </Router>,
   document.getElementById("root")
 );

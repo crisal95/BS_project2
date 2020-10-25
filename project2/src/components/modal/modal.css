@@ -12,14 +12,14 @@
     cursor: pointer;
     height: 3rem;
     font-size: large ;
-    border: 0;
+    border: none;
 
 }
 
 .rulesButton:hover {
     background-color: #660099;
     color: white;
-    border: 1px solid lightgray;
+    border: 3px solid white;
 }
 
 .modalComponent {
@@ -27,4 +27,40 @@
 }
 .closeButton {
   text-align: center;
+}
+.closeButton:hover {
+  background-color: white;
+  border: 1px solid #660099;
+  color: black;
+  cursor: pointer;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  background-color: white;
+  overflow-y: scroll;
+  height: 90%;
+  width: 70%;
+}
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+}
+
+.modalContainer {
+  margin: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .modal {
+    height: 90%;
+    width: 90%;
+  }
 }

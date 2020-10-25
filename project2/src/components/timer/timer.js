@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
+import "./timer.css";
 
 const Timer = () => {
   const [timer, setTimer] = useState(300);
@@ -30,7 +31,7 @@ const Timer = () => {
   }
   return (
     <div className="timerContainer">
-      <h3>Your time: {timer} seconds</h3>
+      <h3><i className="fa fa-clock-o fa-2x icon" aria-hidden="true"></i> {timer} seconds</h3>
     </div>
   );
 };

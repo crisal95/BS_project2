@@ -5,16 +5,19 @@ import Question from "../../components/question/question";
 import Timer from "../../components/timer/timer";
 import PrizesCard from "../../components/prizesCard/prizesCard";
 import Header from "../../components/header/header";
+import Loading from "../../components/loading/loading";
 
 const Trivia = () => {
   let id = window.location.href.split("id=").reverse()[0];
   const [list, setList] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const getQuestions = ApiHooks.GetByCategory(id);
   localStorage.setItem("boolIndex", "false");
 
   useEffect(() => {
     if (getQuestions) {
+      setLoading(false);
       setList(getQuestions);
     }
     if (localStorage.getItem("retry") === "true") {
@@ -24,7 +27,8 @@ const Trivia = () => {
   }, [getQuestions]);
 
   return (
-    list && (
+    loading ? (<Loading/>)
+    :(
       <div className="triviaContainer">
         <Header />
         <div className="questionCard">

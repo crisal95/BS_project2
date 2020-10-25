@@ -1,7 +1,15 @@
 .header {
-    height: 5rem;
-    background-color:#262522;
+    height: 7rem;
+    background-color:#1f1f1f;
     width: 100%;
     display: flex;
     align-items: flex-end;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.logo {
+    height: 6rem;
 }

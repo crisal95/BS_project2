@@ -2,7 +2,7 @@ import { enc } from "crypto-js";
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 
-const BASE_URL = "https://opentdb.com/api.php?amount=10&type=multiple";
+const BASE_URL = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple";
 var CryptoJS = require("crypto-js");
 
 function getToken() {

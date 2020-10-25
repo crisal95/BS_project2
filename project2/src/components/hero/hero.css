@@ -16,6 +16,10 @@
 .heroContent span {
   text-align: center;
 }
+.heroContent p {
+  font-size: larger;
+  font-weight: bold;
+}
 
 @media only screen and (max-width: 768px) {
   .heroContent {
@@ -34,7 +38,7 @@
   }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 420px) {
   .hero {
     
     color: white;

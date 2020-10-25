@@ -35,7 +35,8 @@ const ModalComponent = ({ title, text }) => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        className="modal"
+        overlayClassName="Overlay"
         appElement={document.getElementById('root')}
       >
         <div className="modalContainer">
