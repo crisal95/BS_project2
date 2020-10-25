@@ -3,20 +3,31 @@ import { Redirect } from "react-router-dom";
 import "./timer.css";
 
 const Timer = () => {
-  const [timer, setTimer] = useState(300);
+  const timer_time = 30;
+  const setTimerTime = () => {
+    const timer = parseInt(localStorage.getItem("timer"));
+    if(timer > timer_time) return 30;
+    if(timer < 30) return timer;
+    return timer_time;
+  }
+  const [timer, setTimer] = useState( setTimerTime());
   const [redirect, setRedirect] = useState(false);
+
 
   useEffect(() => {
     if (timer !== 0) {
         setTimeout(() => {
         if (timer !== 0) {
           setTimer(timer - 1);
+          localStorage.setItem("timer",timer-1);
         }
       }, 1000);
     } else {
       setRedirect(true);
     }
   },[timer]);
+
+
 
   if (redirect) {
     localStorage.setItem("result","true");

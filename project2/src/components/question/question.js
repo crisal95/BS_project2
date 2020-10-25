@@ -16,7 +16,7 @@ const Trivia = ({ question }) => {
     if (question) {
       setAnswers(processData());
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function functionSort(a, b) {
     return 0.5 - Math.random();

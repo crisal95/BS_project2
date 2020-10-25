@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ApiHooks from "../../hooks/apiHooks";
 import CategorieCard from "../../components/categoryCard/categoryCard";
 import "./home.css";
@@ -10,13 +10,8 @@ const Home = () => {
   localStorage.setItem("boolIndex", "false");
   localStorage.setItem("result", "false");
   localStorage.setItem("routeCheck", "false");
+  localStorage.setItem("timer","30");
   const removeCategories = [13, 21, 24, 25, 30, 16, 23];
-
-  useEffect(() => {
-    if (categories) {
-      console.log(categories);
-    }
-  });
 
 
   return (
@@ -29,6 +24,7 @@ const Home = () => {
               <CategorieCard categoryData={item} />
             </div>;
           }
+          return null;
         })}
       </div>
     </div>

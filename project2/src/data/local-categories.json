@@ -1,0 +1,7 @@
+{
+  "trivia_categories": [
+    { "id": 9, "name": "General Knowledge" },
+    { "id": 15, "name": "Entertainment: Video Games" },
+    { "id": 31, "name": "Entertainment: Japanese Anime & Manga" }
+  ]
+}

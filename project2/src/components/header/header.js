@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./header.css";
 import Logo from "../../data/logo.png";
 import routerFunctions from "../../hooks/buttonsFunctions";
@@ -22,6 +21,7 @@ const Header = () => {
         onClick={() => {
           click();
         }}
+        alt="Trivia logo"
       ></img>
     </div>
   );

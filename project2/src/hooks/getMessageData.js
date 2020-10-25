@@ -57,7 +57,7 @@ const GetMessageData = () => {
 
   useEffect(() => {
     setData(setMessageData());
-  }, [localStatus]);
+  }, [localStatus]); // eslint-disable-line react-hooks/exhaustive-deps
   const updateMessage = () => {
    setStatus(localStorage.getItem("pageStatus"));
   };

@@ -42,4 +42,7 @@
   .radioButtons {
     margin: 1rem;
   }
+  .questionContainer {
+    min-height: auto;
+  }
 }

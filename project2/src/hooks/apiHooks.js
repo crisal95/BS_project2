@@ -1,8 +1,9 @@
-import { enc } from "crypto-js";
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
+import LocalCategories from "../data/local-categories.json";
+import LocalData from "../data/local-data.json";
 
-const BASE_URL = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple";
+const BASE_URL = "https://opentdb.com/api.php?amount=10&type=multiple";
 var CryptoJS = require("crypto-js");
 
 function getToken() {
@@ -22,12 +23,10 @@ function getToken() {
 }
 
 const GetByCategory = () => {
- 
   let id = window.location.href.split("id=").reverse()[0];
   const [questions, setQuestions] = useState(null);
 
   useEffect(() => {
-
     if (!localStorage.getItem("index")) {
       fetch(BASE_URL + `&category=` + id)
         .then((resp) => resp.json())
@@ -41,6 +40,19 @@ const GetByCategory = () => {
           localStorage.setItem("index", 0);
         })
         .catch((ex) => {
+          var categoryData = {};
+          LocalData.forEach((element) => {
+            if (element.id === parseInt(id)) {
+              categoryData = element.results;
+            }
+          });
+          var encrypted = CryptoJS.AES.encrypt(
+            JSON.stringify(categoryData),
+            Cookies.get("token")
+          );
+          setQuestions(categoryData);
+          localStorage.setItem("questions", encrypted);
+          localStorage.setItem("index", 0);
           console.error(ex);
         });
     } else {
@@ -48,7 +60,7 @@ const GetByCategory = () => {
       var decrypted = CryptoJS.AES.decrypt(data, Cookies.get("token"));
       setQuestions(JSON.parse(decrypted.toString(CryptoJS.enc.Utf8)));
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return questions;
 };
@@ -63,6 +75,7 @@ const GetCategories = () => {
       })
       .catch((ex) => {
         console.error(ex);
+        return setCategories(LocalCategories.trivia_categories);
       });
   }, []);
   return categories;
@@ -74,7 +87,7 @@ const deleteLocalStorage = () => {
 };
 
 const GetIndexCorrectAnswer = (index) => {
-  if(!localStorage.getItem("questions")) return "";
+  if (!localStorage.getItem("questions")) return "";
   var data = localStorage.getItem("questions");
   var decrypted = CryptoJS.AES.decrypt(data, Cookies.get("token"));
   const question = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));

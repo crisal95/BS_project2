@@ -2,6 +2,7 @@ import React from "react";
 import "./hero.css";
 import Modal from "../modal/modal";
 import ModalText from "../../data/text";
+import Scroll from "../../data/scroll.png";
 
 const Hero = () => {
   return (
@@ -15,6 +16,9 @@ const Hero = () => {
           and let's start!
         </p>
         <Modal title={"Game rules"} text={ModalText} />
+      </div>
+      <div className="scroll">
+        <img className="bounce-top scroll-image" src={Scroll} alt="Spinner" />
       </div>
     </div>
   );

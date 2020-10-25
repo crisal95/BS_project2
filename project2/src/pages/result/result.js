@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./result.css";
 import GetMessageData from "../../hooks/getMessageData";
 import ButtonsFunctions from "../../hooks/buttonsFunctions";
@@ -37,9 +37,11 @@ const Result = () => {
   if (redirect) {
     if (buttonClicked === "1") {
       if (messageData.status === "1") {
+        localStorage.setItem("timer","30");
         return ButtonsFunctions.redirectTrivia(id);
       }
       localStorage.setItem("retry","true");
+      localStorage.setItem("timer","30");
       ApiHooks.deleteLocalStorage();
       return ButtonsFunctions.redirectTrivia(id);
     } else {

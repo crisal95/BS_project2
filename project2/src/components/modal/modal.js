@@ -2,19 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import "./modal.css";
 
-const customStyles = {
-  content: {
-    height: "80%",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    width: "80%",
-    
-  },
-};
+
 
 const ModalComponent = ({ title, text }) => {
 
