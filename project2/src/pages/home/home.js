@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <div className="home">
+      <div id="home" className="home">
         {categories.map((item) => {
           if (removeCategories.indexOf(parseInt(item.id)) === -1) {
             return <div key={item.id} className="categorieItem">

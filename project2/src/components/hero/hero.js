@@ -18,7 +18,9 @@ const Hero = () => {
         <Modal title={"Game rules"} text={ModalText} />
       </div>
       <div className="scroll">
+      <a href="#home">
         <img className="bounce-top scroll-image" src={Scroll} alt="Spinner" />
+        </a>
       </div>
     </div>
   );

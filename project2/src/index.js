@@ -9,6 +9,7 @@ import Trivia from "../src/pages/trivia/trivia";
 import Result from "../src/pages/result/result";
 import Win from "../src/pages/win/win";
 import 'font-awesome/css/font-awesome.min.css';
+import NotFound from "../src/pages/404/notFound";
 
 
 
@@ -31,6 +32,7 @@ ReactDOM.render(
         <WinRoute path="/win">
           <Win />
         </WinRoute>
+        <Route component={NotFound} />
       </Switch>
     </React.StrictMode>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></link>

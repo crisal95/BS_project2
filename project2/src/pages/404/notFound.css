@@ -1,0 +1,18 @@
+.notFound {
+    background-color: #303030;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.homeLink {
+    color: white;
+}
+.homeLink:hover {
+    color: #660099;
+    ;
+}
