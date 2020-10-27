@@ -3,11 +3,11 @@ import { Redirect } from "react-router-dom";
 import "./timer.css";
 
 const Timer = () => {
-  const timer_time = 30;
+  const timer_time = 90;
   const setTimerTime = () => {
     const timer = parseInt(localStorage.getItem("timer"));
-    if(timer > timer_time) return 30;
-    if(timer < 30) return timer;
+    if(timer > timer_time) return timer_time;
+    if(timer < timer_time) return timer;
     return timer_time;
   }
   const [timer, setTimer] = useState( setTimerTime());

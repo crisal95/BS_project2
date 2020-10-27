@@ -37,11 +37,11 @@ const Result = () => {
   if (redirect) {
     if (buttonClicked === "1") {
       if (messageData.status === "1") {
-        localStorage.setItem("timer","30");
+        localStorage.setItem("timer","90");
         return ButtonsFunctions.redirectTrivia(id);
       }
       localStorage.setItem("retry","true");
-      localStorage.setItem("timer","30");
+      localStorage.setItem("timer","90");
       ApiHooks.deleteLocalStorage();
       return ButtonsFunctions.redirectTrivia(id);
     } else {

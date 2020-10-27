@@ -10,7 +10,7 @@ const Home = () => {
   localStorage.setItem("boolIndex", "false");
   localStorage.setItem("result", "false");
   localStorage.setItem("routeCheck", "false");
-  localStorage.setItem("timer","30");
+  localStorage.setItem("timer","90");
   const removeCategories = [13, 21, 24, 25, 30, 16, 23];
 
 

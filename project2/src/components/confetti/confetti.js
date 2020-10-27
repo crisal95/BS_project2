@@ -5,6 +5,9 @@ const ConfettiResponsive = () => {
     const [width, setWindowWidth] = useState(0);
   const [height, setWindowHeight] = useState(0);
   let resizeWindow = () => {
+
+    setWindowWidth(0);
+    setWindowHeight(0);
     setWindowWidth(window.innerWidth);
     setWindowHeight(window.innerHeight);
   };
@@ -13,7 +16,7 @@ const ConfettiResponsive = () => {
   useEffect(() => {
     resizeWindow();
     window.addEventListener("resize", resizeWindow);
-    return () => window.removeEventListener("resize", resizeWindow);
+
   }, []);
 
   return <div> <Confetti width={width} height={height} /></div>;
