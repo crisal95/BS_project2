@@ -13,7 +13,7 @@ const getBool = (iter) => {
 }
 
   return <div className="prizeCard">
-      <div className="title"><h3>Yor current reward</h3></div>
+      <div className="title"><h3>Your current reward</h3></div>
       <div className={actualIndex==="0" ? 'actualPrizeText' : 'prizeText'}>
       <p className="prizeText">0</p>
       </div>

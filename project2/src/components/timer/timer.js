@@ -25,6 +25,9 @@ const Timer = () => {
     } else {
       setRedirect(true);
     }
+    return () => {
+      clearTimeout(setTimeout);
+   }
   },[timer]);
 
 
